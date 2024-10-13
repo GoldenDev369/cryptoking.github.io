@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DEPOSIT CRYPTO-KING</title>
+    <style>
+        body{
+            background-color:black;
+            color: green;
+            margin:10px;
+            padding:10px;
+            font-family:monospace;
+            background-image: url('images/a_network_in_green_and_black_color_in_2d (2).jpeg'); /* Replace 'background.jpg' with the path to your image */
+            background-size: cover; /* Ensures the image covers the whole page */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-attachment: fixed; /* Makes the background image fixed in place */
+            background-position: center; /* Centers the image */
+            color: green; /* Sets text color to white for better contrast */
+        }
+        .container {
+            max-width: 600%;
+            margin: 0 aut0;
+            padding: 20px;
+            background-color: black;
+            border-radius:10px;
+            border-right: 0.15em solid green;
+            border-left: 0.15em solid green;
+            box-shadow: 0 0 10px green;
+            justify-content: center;
+            text-align:center;
+            overflow: hidden;
+            white-space: nowrap;
+            animation: typing 1s steps(22, end), blink-caret 0.75s step-end infinite;
+        }
+        .head-container {
+            border-radius:10px;
+            box-shadow: 0 0 10px green;
+            max-width: 30%;
+            justify-content:center;
+            text-align:center;
+            margin: 0 auto;
+            padding: 5px;
+            display: flex;
+        }
+        textarea {
+            width: 65%;
+            height: 25px;
+            margin-bottom: 20px;
+            background-color: black;
+            color: green;
+        }
+        button {
+            padding: 5px 5px;
+            font-size: 16px;
+            cursor: pointer;
+            color: green;
+            background-color: black;
+            transition: 0.5s;
+        }
+        button:hover {
+            color: black;
+            background-color: green;
+        }
+        button:focus {
+            color: green;
+            background-color: yellow;
+        }
+        button[type="submit"] {
+            color: green;
+            background-color: black;
+            width: 100%;
+            height: auto;
+            font-family: monospace;
+            transition: 0.5s;
+            border-right: 0.15em solid green;
+            border-left: 0.15em solid green;
+            animation: typing 5s steps(22, end), blink-caret 0.75s step-end infinite;
+            border-top: 0.15em solid green;
+            border-bottom: 0.15em solid green;
+        }
+        button[type="submit"]:hover {
+            color:black;
+            background-color:green;
+        }
+        button[type="submit"]:focus {
+            color:green;
+            background-color:yellow;
+        }
+        span {
+            border-right: 0.15em solid green;
+            border-left: 0.15em solid green;
+            animation: typing 5s steps(22, end), blink-caret 0.75s step-end infinite;
+            border-top: 0.15em solid green;
+            border-bottom: 0.15em solid green;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 16.5em }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: yellowgreen }
+        }    
+    </style>
+</head>
+<body>
+    <div class="container" id="animatedText">
+        <div class="head-container"><b>DEPOSIT</b></div>
+        <P><b>DEPOSIT A MINIMUM OF "900 TRX" TO THE ADDRESS BELOW</b></P>
+        <textarea id="textToCopy">TVMaoswGWX5gQAkE1Q68oc96ZXPE6PnHb6</textarea>
+        <br>
+        <button onclick="copyText()">Copy</button>
+        <p>CLICK THE BUTTON BELOW AFTER SUCCESSFUL PAYMENT</p>
+        <p><span><b>NOTE: ONLY CLICK AFTER PAYMENT</span></p>
+        </p>
+        <img src="images/crypto_king_logo_2_with_background-removebg-preview.png" title="crypto-king-logo" alt="crypto-king-logo" width="300px" height="auto">
+        <br>
+        <form action="home.html" method="get">
+            <button type="submit" ><b>I HAVE SENT TRX</button>
+        </form>
+    </div>
+
+    <script>
+        function copyText() {
+            // Get the text area element
+            var textArea = document.getElementById('textToCopy');
+            
+            // Select the text
+            textArea.select();
+            textArea.setSelectionRange(0, 99999); // For mobile devices
+
+            // Copy the text inside the text area
+            document.execCommand('copy');
+
+            // Alert the copied text
+            var message = document.getElementById('message');
+            message.innerText = 'Text copied to clipboard!';
+        }
+    </script>
+</body>
+</html>

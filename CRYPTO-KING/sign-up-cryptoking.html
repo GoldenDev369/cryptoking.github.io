@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIGN UP CRYPTOKING</title>
+    <style>
+        body{
+            font-family:monospace;
+            background-color: black;
+            padding:20px;
+            margin: 10px;
+            color: green;
+            background-image: url('images/a_network_in_green_and_black_color_in_2d (2).jpeg'); /* Replace 'background.jpg' with the path to your image */
+            background-size: cover; /* Ensures the image covers the whole page */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-attachment: fixed; /* Makes the background image fixed in place */
+            background-position: center; /* Centers the image */
+            color: green; /* Sets text color to white for better contrast */
+        }
+        .container {
+           animation: blink-caret 0.75s step-end infinite;
+           border-top: 0.15em solid yellowgreen;
+           border-left: 0.15em solid yellowgreen;
+           border-right:0.15em solid yellowgreen;
+           border-bottom: 0.15em solid yellowgreen;
+           background-color: black;
+           box-shadow: 0 0 10px green;
+           border-radius: 10px;
+           max-width: 600px;
+           margin: 0 auto;
+           padding: 20px;
+        }
+        h1 {
+            color: green;
+            text-align: center;
+        }
+        p {
+            margin:10px;
+            padding: 10px;
+        }
+        .container-text {
+            font-family:monospace;
+            border-top: 0.15em solid yellowgreen;
+            animation: typing 1s steps(60, end), blink-caret 0.75s step-end infinite;
+        }
+        .container-text center {
+            border-radius: 10px;
+            width: 100%;
+            border-top: 0.15em solid yellowgreen;
+            border-left: 0.15em solid yellowgreen;
+            border-right:0.15em solid yellowgreen;
+            border-bottom: 0.15em solid yellowgreen;
+            animation: typing 1s steps(60, end), blink-caret 0.75s step-end infinite;
+        }
+        h2 {
+            text-align: center;
+        }
+        .form-container input[type="text"],
+        .form-container button,
+        .form-container input[type="password"] {
+            width: 100%;
+            padding:10px;
+            margin-bottom: 10px;
+            border: 1px solid green;
+            border-radius: 4px;
+            box-sizing: border-box;
+            border-radius:20px;
+            justify-content: center;
+            box-shadow: 0 0 10px green;
+        } 
+        .form-container button {
+            color: green;
+            background-color: black;
+            transition:0.3s;
+        }
+        .form-container button:hover {
+            color: yellow;
+            background-color:green;
+        }
+        .form-container button:active {
+            color: green;
+            background-color:yellow;
+        }
+        a {
+            text-decoration: none;
+            color: yellowgreen;
+            text-shadow: 0 0 8px green;       
+        }
+        .password-container button {
+          width: 10%; 
+          align-items: center; 
+        }
+        ::-webkit-scrollbar {
+            width: 12px;
+            display: none;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 16.5em }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: yellowgreen }
+        }    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>SIGN UP / SIGN IN</h1>
+        <div class="container-text">
+            <p><b>To remain untrackable and undetectable, we only need our users wallet address.</b></p>
+            <p><b>NOTE: The wallet address you submit should be the only address you use for deposit as it will also be the only address we use to pay you.</b></p>
+            <p><b><center>YOUR ADDRESS IS YOUR IDENTITY</center></b></p>
+            <h2>Submit your Tron (TRX) wallet address below</h2>
+        </div>
+        <div class="form-container" id="registerForm">
+            <input type="text" id="registerWallet" name="trxWalletAddress" placeholder="TRX Wallet Address" required>
+            <input type="text" id="registerUsername" name="username" placeholder="Input a unique username for yourself" required>
+            <div class="password-container">
+                <input type="password" id="registerPassword" name="password" placeholder="Password" required>
+                <button type="button" onclick="togglePassword('registerPassword')">👁️</button>
+            </div>
+            <h4>
+                <input type="checkbox" name="accept" value="terms and conditions" required>
+                <b>Accept <a href="terms-and-condition.html">terms and conditions</a></b>
+            </h5>
+            <button onclick="register()"><b>Sign Up</b></button>
+            <b><p>Already have an account? <a href="#" onclick="showLoginForm()">Login</a></p></b>
+        </div>
+        
+        <div class="form-container" id="loginForm" style="display: none;">
+            <input type="text" id="loginWallet" placeholder="TRX Wallet" required>
+            <input type="text" id="loginUsername" placeholder="Username" required>
+            <div class="password-container">
+                <input type="password" id="loginPassword" placeholder="Password" required>
+                <button type="button" onclick="togglePassword('loginPassword')">👁️</button>
+            </div>
+            <button onclick="login()">Login</button>
+            <b><p>Don't have an account? <a href="#" onclick="showRegisterForm()">Register</a></p></b>
+        </div>
+    </div>
+
+    <script>
+        function showRegisterForm() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('registerForm').style.display = 'block';
+        }
+
+        function showLoginForm() {
+            document.getElementById('registerForm').style.display = 'none';
+            document.getElementById('loginForm').style.display = 'block';
+        }
+
+        function register() {
+            const username = document.getElementById('registerUsername').value;
+            const password = document.getElementById('registerPassword').value;
+            const wallet = document.getElementById('registerWallet').value;
+            if (username.trim() !== "" && password.trim() !== "" && wallet.trim() !== "") {
+                let users = JSON.parse(localStorage.getItem('users')) || {};
+                if (users[username]) {
+                    alert('Username already exists!');
+                } else {
+                    users[username] = { password: password, wallet: wallet };
+                    localStorage.setItem('users', JSON.stringify(users));
+                    alert('Registration successful! Please log in.');
+                    showLoginForm();
+                }
+            } else {
+                alert('please fill in all fields');
+            }
+        }
+
+        function login() {
+            const username = document.getElementById('loginUsername').value;
+            const password = document.getElementById('loginPassword').value;
+            let users = JSON.parse(localStorage.getItem('users')) || {};
+            if (users[username] && users[username].password === password && users[username].wallet === wallet) {
+                localStorage.setItem('username', username);
+                window.location.href = 'index.html'; // Redirect to home page on successful login
+            } else {
+                alert('Invalid username, password, or TRX wallet!');
+            }
+        }
+
+        function togglePassword(fieldId) {
+            const passwordField = document.getElementById(fieldId);
+            if (passwordField.type === "password") {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        }
+    </script>
+</body>
+</html>

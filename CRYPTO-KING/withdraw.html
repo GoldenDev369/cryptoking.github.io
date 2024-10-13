@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WITHDRAW CRYPTO-KING</title>
+    <style>
+        body {
+            font-family:monospace;
+            color: green;
+            background-color:black;
+            margin:10px;
+            padding: 10px;
+            background-image: url('images/a_network_in_green_and_black_color_in_2d (2).jpeg'); /* Replace 'background.jpg' with the path to your image */
+            background-size: cover; /* Ensures the image covers the whole page */
+            background-repeat: no-repeat; /* Prevents the image from repeating */
+            background-attachment: fixed; /* Makes the background image fixed in place */
+            background-position: center; /* Centers the image */
+            color: green; /* Sets text color to white for better contrast */
+        }
+        .container {
+            background-color: black;
+            max-width:600%;
+            box-shadow: 0 0 10px green;
+            margin: 0 auto;
+            padding: 10px;
+            border-radius: 10px;
+            justify-content: center;
+            text-align: center;
+            border-color: yellowgreen;
+            border-right: 0.15em solid yellowgreen;
+            border-left: 0.15em solid yellowgreen; 
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        .head-container {
+            box-shadow: 0 0 5px green;
+            width: 50%;
+            margin: 0 auto;
+            border-radius: 10px;
+            border-top: 0.15em solid yellowgreen;
+            border-left: 0.15em solid yellowgreen;
+            border-right: 0.15em solid yellowgreen;
+            border-bottom: 0.15em solid yellowgreen;
+            animation: typing 1s steps(22, end), blink-caret 0.75s step-end infinite;
+        }
+        input[type="text"] {
+            color: green;
+            background-color: black;
+            margin: 10px;
+            padding: 2px;
+            border-color:black;
+            transition:0.7s;
+        }
+        button {
+            color: green;
+            background-color: black;
+            margin: 10px;
+            padding: 2px;
+            border-color:black;
+            transition:0.7s;
+        }
+        button {
+            border-top: 0.15em solid yellowgreen;
+            border-left: 0.15em solid yellowgreen;
+            border-right: 0.15em solid yellowgreen;
+            border-bottom: 0.15em solid yellowgreen;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        button:hover {
+            background-color:green;
+            color: black;
+        }
+        button:focus {
+            background-color:yellow;
+            color: green;
+            animation: blink-caret 0.75s step-end infinite;
+        }
+        p {
+            animation: typing 1s steps(22, end), blink-caret 0.75s step-end infinite;
+        }
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 16.5em }
+        }
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: yellowgreen }
+        }    
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="head-container"><b>WITHDRAW</div>
+        <p><b>By Clicking Withdraw, You're Withdrawing All your ROI'S To your Registered Wallet Address </p>
+        <input type="text" name="amount" placeholder="Amount of TRX"><br>
+        <button onclick="withdrawTRX()">Withdraw</button>
+        <div id="status"></div>
+    </div>
+    <script src="check-user.js"></script>
+    <script src="withdraw.js"></script>
+</body>
+</html>
